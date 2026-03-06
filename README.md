@@ -186,7 +186,6 @@ nursh/
       app/              # Next.js App Router pages (journal, log, insights, discover, profile)
       components/       # UI (Button, Card, Input), food groups (dashboard, chips),
                         #   transparency (confidence, traces, type labels)
-      demo/             # Mock data + API for self-contained demo mode
       lib/              # API client, types, Supabase client, design tokens
       styles/           # Design tokens (warm palette, 13 food group colors)
   docs/
@@ -210,32 +209,3 @@ Six PostgreSQL extensions power the search and similarity features:
 Key tables: `foods` (with nutrient_vector, source provenance, aliases[], tags[]), `food_groups` (13 categories), `food_nutrients` (per-nutrient authoritative data), `recipe_components` (DAG for composite dishes), `evidence_citations` (links health rules to published research), `journal_entries`, `journal_items`, `user_profiles`, `user_health_contexts`, `favorites`.
 
 Performance: materialized view for gap analysis, GIN indexes on name/aliases/tags for trigram search, HNSW index on nutrient_vector for approximate nearest neighbor.
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.12+, Node.js 22+
-- Supabase project (or local Supabase via Docker)
-- Gemini API key (dev) or Anthropic API key (prod)
-
-### Backend
-
-```bash
-cd backend
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-# Configure .env with SUPABASE_URL, SUPABASE_KEY, LLM_PROVIDER, GEMINI_API_KEY
-uvicorn app.main:app --reload
-```
-
-### Frontend
-
-```bash
-cd frontend
-npm install
-# Configure .env.local with NEXT_PUBLIC_API_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
-npm run dev
-```
