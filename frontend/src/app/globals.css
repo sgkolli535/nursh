@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ========================================
+   Nursh Design System — Tailwind v4 Theme
+   ======================================== */
+
+:root {
+  /* Primary Colors */
+  --color-espresso: #3E2117;
+  --color-walnut: #6B4226;
+  --color-terracotta: #A0674B;
+
+  /* Neutral & Background */
+  --color-caramel: #C9A87C;
+  --color-sand: #D4B896;
+  --color-linen: #E8D5C4;
+  --color-cream: #F5EDE3;
+  --color-parchment: #FAF6F1;
+
+  /* Accent Colors (food groups) */
+  --color-muted-sage: #8FA68B;
+  --color-soft-clay: #C17C5E;
+  --color-warm-amber: #D4A054;
+  --color-blush: #D4A69A;
+  --color-soft-brown: #8B7355;
+
+  /* Semantic */
+  --color-warm-success: #7A9E7E;
+  --color-gentle-amber: #C49A3C;
+  --color-soft-alert: #B87358;
+
+  /* Dark Mode */
+  --color-dark-cocoa: #1E1410;
+  --color-warm-charcoal: #2A1F18;
+  --color-dark-walnut: #342318;
+
+  /* Active theme */
+  --background: var(--color-parchment);
+  --foreground: var(--color-espresso);
+  --card-bg: #ffffff;
+  --input-bg: var(--color-linen);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-dark-cocoa);
+    --foreground: var(--color-cream);
+    --card-bg: var(--color-warm-charcoal);
+    --input-bg: var(--color-dark-walnut);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Typography */
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+
+  /* Spacing (4px base) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border Radius */
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --radius-modal: 20px;
+  --radius-chip: 999px;
+  --radius-input: 12px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 4px rgba(62, 33, 23, 0.08);
+  --shadow-card-hover: 0 4px 12px rgba(62, 33, 23, 0.12);
+  --shadow-button: 0 2px 8px rgba(62, 33, 23, 0.15);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+h1, h2, h3.serif {
+  font-family: var(--font-serif);
+  line-height: 1.25;
+  color: var(--color-espresso);
+}
+
+/* Never pure black text */
+* {
+  --tw-text-opacity: 1;
+}
