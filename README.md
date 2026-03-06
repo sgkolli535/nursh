@@ -22,7 +22,7 @@ Most food tracking apps treat nutrition as a numbers game — calories in, calor
 
 ## Demo
 
-[![Nursh Demo](https://img.youtube.com/vi/Dzwp9HcrcGU/maxresdefault.jpg)](https://youtube.com/shorts/Dzwp9HcrcGU)
+![Nursh Demo](nursh_demo-ezgif.com-video-to-gif-converter.gif)
 
 ---
 
