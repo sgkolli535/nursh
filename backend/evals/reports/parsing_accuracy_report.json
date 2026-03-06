@@ -1,0 +1,39 @@
+{
+  "suite_name": "parsing_accuracy",
+  "total_cases": 4,
+  "passed": 4,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "avg_score": 1.0,
+  "results": [
+    {
+      "test_id": "multi_item_simple",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: multi_item_simple",
+      "failures": []
+    },
+    {
+      "test_id": "colloquial_south_indian",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: colloquial_south_indian",
+      "failures": []
+    },
+    {
+      "test_id": "ambiguous_dal",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: ambiguous_dal",
+      "failures": []
+    },
+    {
+      "test_id": "compound_meal",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: compound_meal",
+      "failures": []
+    }
+  ],
+  "duration_ms": 0.12608299948624335
+}

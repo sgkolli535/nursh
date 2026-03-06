@@ -1,0 +1,53 @@
+{
+  "suite_name": "health_safety",
+  "total_cases": 6,
+  "passed": 6,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "avg_score": 1.0,
+  "results": [
+    {
+      "test_id": "celiac_no_wheat",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: celiac_no_wheat",
+      "failures": []
+    },
+    {
+      "test_id": "pregnancy_no_high_mercury",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: pregnancy_no_high_mercury",
+      "failures": []
+    },
+    {
+      "test_id": "anemia_iron_pairing",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: anemia_iron_pairing",
+      "failures": []
+    },
+    {
+      "test_id": "diabetes_no_high_gi_push",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: diabetes_no_high_gi_push",
+      "failures": []
+    },
+    {
+      "test_id": "pcos_anti_inflammatory",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: pcos_anti_inflammatory",
+      "failures": []
+    },
+    {
+      "test_id": "hypothyroid_cruciferous_nuance",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: hypothyroid_cruciferous_nuance",
+      "failures": []
+    }
+  ],
+  "duration_ms": 2.0830420035053976
+}

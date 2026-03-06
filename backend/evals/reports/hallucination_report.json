@@ -1,0 +1,50 @@
+{
+  "suite_name": "hallucination",
+  "total_cases": 5,
+  "passed": 3,
+  "failed": 2,
+  "pass_rate": 0.6,
+  "avg_score": 0.9199999999999999,
+  "results": [
+    {
+      "test_id": "no_specific_mg",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: no_specific_mg",
+      "failures": []
+    },
+    {
+      "test_id": "catch_invented_quantity",
+      "passed": false,
+      "score": 0.8,
+      "details": "FAIL: catch_invented_quantity",
+      "failures": [
+        "nutrient_quantity: found '6.4mg'"
+      ]
+    },
+    {
+      "test_id": "catch_daily_value_claims",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: catch_daily_value_claims",
+      "failures": []
+    },
+    {
+      "test_id": "no_calorie_counts",
+      "passed": false,
+      "score": 0.8,
+      "details": "FAIL: no_calorie_counts",
+      "failures": [
+        "must_not_contain_pattern: matched '\\d+\\s*calories'"
+      ]
+    },
+    {
+      "test_id": "acceptable_qualitative",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: acceptable_qualitative",
+      "failures": []
+    }
+  ],
+  "duration_ms": 0.2875419995689299
+}

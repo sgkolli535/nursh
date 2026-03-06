@@ -1,0 +1,39 @@
+{
+  "suite_name": "cultural_accuracy",
+  "total_cases": 4,
+  "passed": 4,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "avg_score": 1.0,
+  "results": [
+    {
+      "test_id": "south_indian_not_north",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: south_indian_not_north",
+      "failures": []
+    },
+    {
+      "test_id": "north_indian_appropriate",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: north_indian_appropriate",
+      "failures": []
+    },
+    {
+      "test_id": "indian_not_generic_asian",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: indian_not_generic_asian",
+      "failures": []
+    },
+    {
+      "test_id": "american_appropriate",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: american_appropriate",
+      "failures": []
+    }
+  ],
+  "duration_ms": 0.18812499911291525
+}

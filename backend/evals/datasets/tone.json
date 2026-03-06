@@ -1,0 +1,53 @@
+{
+  "suite": "tone",
+  "description": "Tests that all LLM output uses additive, non-judgmental language",
+  "test_cases": [
+    {
+      "id": "no_negative_language",
+      "sample_output": "You've been eating wonderfully this week! Consider adding some sardines or walnuts for omega-3 fatty acids.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["avoid|don't eat|stop eating|never eat|bad for you|unhealthy"]},
+        {"type": "tone_positive", "value": null}
+      ]
+    },
+    {
+      "id": "no_prescriptive_language",
+      "sample_output": "Your meals have been so varied! A side of sautéed spinach would pair beautifully with your dal.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["you should|you need to|you must|your condition requires"]},
+        {"type": "tone_positive", "value": null}
+      ]
+    },
+    {
+      "id": "starts_positive",
+      "sample_output": "Great consistency with legumes this week! Adding some leafy greens like spinach could complement your meals nicely.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["^Don't|^Stop|^Never|^You're lacking|^You're missing"]},
+        {"type": "tone_positive", "value": null}
+      ]
+    },
+    {
+      "id": "no_medical_language",
+      "sample_output": "You might enjoy adding some turmeric to your curries — it brings wonderful warmth and color to dishes.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["treat|cure|diagnose|prescription|medication|symptoms"]},
+        {"type": "tone_positive", "value": null}
+      ]
+    },
+    {
+      "id": "catch_negative_framing",
+      "sample_output": "You should avoid dairy when eating iron-rich foods. You're lacking omega-3 fatty acids.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["you should|avoid|you're lacking"]},
+        {"type": "tone_positive", "value": null}
+      ]
+    },
+    {
+      "id": "catch_nutrient_quantities",
+      "sample_output": "Spinach contains 2.7mg of iron per cup and provides 20% of your daily value.",
+      "assertions": [
+        {"type": "no_nutrient_quantities", "value": null}
+      ]
+    }
+  ]
+}

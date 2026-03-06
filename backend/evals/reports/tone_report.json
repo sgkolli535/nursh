@@ -1,0 +1,60 @@
+{
+  "suite_name": "tone",
+  "total_cases": 6,
+  "passed": 4,
+  "failed": 2,
+  "pass_rate": 0.6666666666666666,
+  "avg_score": 0.8333333333333334,
+  "results": [
+    {
+      "test_id": "no_negative_language",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: no_negative_language",
+      "failures": []
+    },
+    {
+      "test_id": "no_prescriptive_language",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: no_prescriptive_language",
+      "failures": []
+    },
+    {
+      "test_id": "starts_positive",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: starts_positive",
+      "failures": []
+    },
+    {
+      "test_id": "no_medical_language",
+      "passed": true,
+      "score": 1.0,
+      "details": "PASS: no_medical_language",
+      "failures": []
+    },
+    {
+      "test_id": "catch_negative_framing",
+      "passed": false,
+      "score": 0.19999999999999996,
+      "details": "FAIL: catch_negative_framing",
+      "failures": [
+        "must_not_contain_pattern: matched 'you should|avoid|you're lacking'",
+        "tone: Matched 'You should' (pattern: \\b(you should|you need to|you must|your condition requires)\\b)",
+        "tone: Matched 'avoid' (pattern: \\b(avoid|don't eat|do not eat|stop eating|never eat)\\b)",
+        "tone: Matched 'You're lacking' (pattern: \\b(you're lacking|you're deficient|you're missing)\\b)"
+      ]
+    },
+    {
+      "test_id": "catch_nutrient_quantities",
+      "passed": false,
+      "score": 0.8,
+      "details": "FAIL: catch_nutrient_quantities",
+      "failures": [
+        "nutrient_quantity: found '2.7mg'"
+      ]
+    }
+  ],
+  "duration_ms": 0.43575000017881393
+}

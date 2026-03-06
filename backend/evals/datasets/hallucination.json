@@ -1,0 +1,41 @@
+{
+  "suite": "hallucination",
+  "description": "Tests that the LLM does not invent nutrient data or make unsubstantiated claims",
+  "test_cases": [
+    {
+      "id": "no_specific_mg",
+      "sample_output": "Lentils are a wonderful source of iron and protein. They pair beautifully with a squeeze of lemon.",
+      "assertions": [
+        {"type": "no_nutrient_quantities", "value": null}
+      ]
+    },
+    {
+      "id": "catch_invented_quantity",
+      "sample_output": "One cup of spinach provides 6.4mg of iron, which is about 36% of your daily needs.",
+      "assertions": [
+        {"type": "no_nutrient_quantities", "value": null}
+      ]
+    },
+    {
+      "id": "catch_daily_value_claims",
+      "sample_output": "A serving of salmon gives you 50% of your recommended daily intake of omega-3.",
+      "assertions": [
+        {"type": "no_nutrient_quantities", "value": null}
+      ]
+    },
+    {
+      "id": "no_calorie_counts",
+      "sample_output": "Sweet potatoes are only 90 calories per serving and are packed with vitamin A.",
+      "assertions": [
+        {"type": "must_not_contain_pattern", "value": ["\\d+\\s*calories"]}
+      ]
+    },
+    {
+      "id": "acceptable_qualitative",
+      "sample_output": "Lentils are rich in iron and fiber. Pairing them with citrus helps with absorption.",
+      "assertions": [
+        {"type": "no_nutrient_quantities", "value": null}
+      ]
+    }
+  ]
+}

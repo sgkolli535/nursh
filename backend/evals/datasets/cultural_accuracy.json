@@ -1,0 +1,40 @@
+{
+  "suite": "cultural_accuracy",
+  "description": "Tests that cuisine-matched suggestions are actually culturally appropriate",
+  "test_cases": [
+    {
+      "id": "south_indian_not_north",
+      "input": {"cuisine": "south_indian", "food_groups_gap": ["fermented_foods"]},
+      "sample_output": "Your South Indian meals have been lovely! Adding idli or dosa brings wonderful fermented goodness to your day.",
+      "assertions": [
+        {"type": "should_contain", "value": ["idli", "dosa", "uttapam", "appam", "sambar"]},
+        {"type": "must_not_contain", "value": ["naan", "butter chicken", "paneer tikka", "tandoori"]}
+      ]
+    },
+    {
+      "id": "north_indian_appropriate",
+      "input": {"cuisine": "north_indian", "food_groups_gap": ["legumes_pulses"]},
+      "sample_output": "Great variety! A serving of dal makhani or chole could add wonderful legumes to your meals.",
+      "assertions": [
+        {"type": "should_contain", "value": ["dal", "chole", "rajma", "chana"]},
+        {"type": "must_not_contain", "value": ["idli", "dosa", "sambar", "rasam"]}
+      ]
+    },
+    {
+      "id": "indian_not_generic_asian",
+      "input": {"cuisine": "south_indian", "food_groups_gap": ["omega3_sources"]},
+      "sample_output": "Consider adding a flaxseed chutney to your meals — it pairs beautifully with idli and dosa.",
+      "assertions": [
+        {"type": "must_not_contain", "value": ["sushi", "tofu stir-fry", "pad thai", "kimchi"]}
+      ]
+    },
+    {
+      "id": "american_appropriate",
+      "input": {"cuisine": "american", "food_groups_gap": ["dark_leafy_greens"]},
+      "sample_output": "Your meals have been great! A side salad with spinach or kale would add some lovely greens.",
+      "assertions": [
+        {"type": "should_contain", "value": ["spinach", "kale", "salad", "greens"]}
+      ]
+    }
+  ]
+}

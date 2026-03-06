@@ -1,0 +1,41 @@
+{
+  "suite": "parsing_accuracy",
+  "description": "Tests NLP parsing quality for meal descriptions",
+  "test_cases": [
+    {
+      "id": "multi_item_simple",
+      "input": {"text": "I had rice, dal, raita, and mango pickle"},
+      "sample_output": "{\"items\": [{\"food_name\": \"rice\", \"raw_text\": \"rice\", \"portion\": \"1 serving\", \"confidence\": 0.9}, {\"food_name\": \"lentil dal\", \"raw_text\": \"dal\", \"portion\": \"1 serving\", \"confidence\": 0.85}, {\"food_name\": \"raita\", \"raw_text\": \"raita\", \"portion\": \"1 serving\", \"confidence\": 0.9}, {\"food_name\": \"mango pickle\", \"raw_text\": \"mango pickle\", \"portion\": \"1 serving\", \"confidence\": 0.9}]}",
+      "assertions": [
+        {"type": "should_contain", "value": ["rice", "dal", "raita", "pickle"]},
+        {"type": "must_not_contain", "value": ["calories", "protein", "iron"]}
+      ]
+    },
+    {
+      "id": "colloquial_south_indian",
+      "input": {"text": "Had idli sambar for breakfast with some coconut chutney"},
+      "sample_output": "{\"items\": [{\"food_name\": \"idli\", \"raw_text\": \"idli\", \"portion\": \"2 pieces\", \"confidence\": 0.95}, {\"food_name\": \"sambar\", \"raw_text\": \"sambar\", \"portion\": \"1 bowl\", \"confidence\": 0.95}, {\"food_name\": \"coconut chutney\", \"raw_text\": \"coconut chutney\", \"portion\": \"2 tablespoons\", \"confidence\": 0.9}]}",
+      "assertions": [
+        {"type": "should_contain", "value": ["idli", "sambar", "coconut chutney"]},
+        {"type": "must_not_contain", "value": ["nutrients", "mg", "calories"]}
+      ]
+    },
+    {
+      "id": "ambiguous_dal",
+      "input": {"text": "I had some dal"},
+      "sample_output": "{\"items\": [{\"food_name\": \"lentil dal\", \"raw_text\": \"dal\", \"portion\": \"1 serving\", \"confidence\": 0.65, \"alternatives\": [\"yellow dal (toor dal)\", \"red lentil dal (masoor)\", \"dal makhani\"]}]}",
+      "assertions": [
+        {"type": "should_contain", "value": ["dal"]},
+        {"type": "should_contain", "value": ["alternatives"]}
+      ]
+    },
+    {
+      "id": "compound_meal",
+      "input": {"text": "My mom's chicken curry with basmati rice, some raita, and a mango lassi"},
+      "sample_output": "{\"items\": [{\"food_name\": \"chicken curry\", \"raw_text\": \"chicken curry\", \"portion\": \"1 serving\", \"confidence\": 0.9}, {\"food_name\": \"basmati rice\", \"raw_text\": \"basmati rice\", \"portion\": \"1 plate\", \"confidence\": 0.95}, {\"food_name\": \"raita\", \"raw_text\": \"raita\", \"portion\": \"1 serving\", \"confidence\": 0.9}, {\"food_name\": \"mango lassi\", \"raw_text\": \"mango lassi\", \"portion\": \"1 glass\", \"confidence\": 0.95}]}",
+      "assertions": [
+        {"type": "should_contain", "value": ["chicken curry", "rice", "raita", "lassi"]}
+      ]
+    }
+  ]
+}
